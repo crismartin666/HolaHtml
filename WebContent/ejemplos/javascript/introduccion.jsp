@@ -191,11 +191,6 @@
 			console.info (' lunes 35  años = 2 € '  + (entradas('lunes',35 ) == 2));
 			console.info (' lunes >35 años = 5 € '  + (entradas('lunes',36 ) == 5));
 			
-			
-					
-				
-				
-			
 			</script>
 			
 		</div>

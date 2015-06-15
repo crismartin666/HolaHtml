@@ -23,6 +23,9 @@
   
   <!-- Custom IconMoon  -->
   <link rel="stylesheet" type="text/css" href="fonts/iconmoon/style.css">
+  
+  <!-- jquery.ui-->
+  <link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.min.css">
 
 
 
