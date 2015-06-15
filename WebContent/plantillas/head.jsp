@@ -4,7 +4,7 @@
 
 <head>
 
-  <base href="/HolaMundo/">		
+  <base href="/HolaHtml/">		
 
   <meta charset="utf-8">
 
