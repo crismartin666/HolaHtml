@@ -11,9 +11,17 @@ $(function() {
 	 $('#select').filterByText($('#textbox'), false);
 	 
 
-	 // Asociar a todos los elementos con clase 'fecha' el datepicker de Jquery UI
+	 // Asociar a todos los elementos con class='fecha', el datepicker de Jquery UI
 	 
 	 $( ".fecha" ).datepicker();
+
+	 // Asociar a todos los elementos input[data-widget='calendario', el datepicker de Jquery UI
+
+	 $("input[data-widget='calendario']").datepicker();
+
+	 
 	 console.debug('datepicker habilitado');
+
+	 
     
   });

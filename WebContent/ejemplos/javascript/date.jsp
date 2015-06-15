@@ -36,6 +36,8 @@
 		
 		
 			<p>Date: <input type="text" class="fecha"></p>
+			<br>
+			<p>Seleccion de fecha con "data-": <input type="text" data-widget="calendario"></p>
 		
 		</div>
 		
