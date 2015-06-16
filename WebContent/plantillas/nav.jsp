@@ -97,7 +97,14 @@
 				<ul>
 					<li><a href="ejemplos/javascript/test.jsp">Qunit</a></li>
 				</ul>
+			</li>
+			<li>
+				<h3>Eventos</h3>
+				<ul>
+					<li><a href="ejemplos/javascript/eventos.jsp">Eventos</a></li>
+				</ul>
 			</li>				
+							
 		</ul>
 	</li>  
   </ul>
