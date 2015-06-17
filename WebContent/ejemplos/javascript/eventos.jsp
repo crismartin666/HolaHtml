@@ -179,7 +179,8 @@
 
 				for(var i = 0; i < sexo.length; i++) {
 				    sexo[i].onclick = function() {
-				    	console.log(this.value)
+				    	console.debug (this.value)
+				    	txt.value += 'radio buttom [' + this.value + ']' + this.innerHTML + '\n';
 				    };
 				}
 
