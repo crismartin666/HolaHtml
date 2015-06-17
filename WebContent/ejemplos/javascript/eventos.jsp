@@ -78,8 +78,6 @@
 					listaBotones[i].addEventListener("click",saluda );
 				}
 				
-					
-				
 			</script>
 			
 		</div>
@@ -107,21 +105,25 @@
 			
 				<div class="col2">
 					
-					<input type="button" id="boton" value="Pulsame">
-					<input type="button" id="clear" value="Limpiar">
-					
-					<select id="selec">
-						<option value="bio">Bilbao</option>
-						<option value="bar">Barakaldo</option>
-						<option value="Get">Getxo</option>
-					</select>
-					
-					<p>
+					<fieldset>
+						<input type="button" id="boton" value="Pulsame">
+						<input type="button" id="clear" value="Limpiar">
+						
+						<select id="selec">
+							<option value="bio">Bilbao</option>
+							<option value="bar">Barakaldo</option>
+							<option value="Get">Getxo</option>
+						</select>
+					</fieldset>
+
+					<fieldset>
 						<input type="text" id="texto" name="entradaTexto" value=""
 					           placeholder="Escribe algo"
 					           title="Al perder el foco se escribira el contenido en el textarea">		
-				    </p>
-				    <p>
+				    </fieldset>
+
+				    <fieldset>
+					<legend>Radio buttons</legend>
 						<span>Sexo:</span><br>
 						<input type="radio" name="sexo" id="datospersonalesSexoH" value="h" >
 						<label for="datospersonalesSexoH">Hombre</label>
@@ -131,8 +133,25 @@
 						<br>
 						<input type="radio" name="sexo" id="datospersonalesSexoX" value="i" checked="checked">
 						<label for="datospersonalesSexoX">Indefinido</label>
-					</p>
-				     			
+					</fieldset>
+					
+					<fieldset>
+					<legend>Conocimientos</legend>
+						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos1" value="0" checked="checked">
+						<label for="datospersonalesConocimientos1">HTML</label>
+						<br>
+						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos2" value="1" >
+						<label for="datospersonalesConocimientos2">JavaScript</label>
+						<br>
+						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos3" value="2" checked="checked">
+						<label for="datospersonalesConocimientos3">CSS</label>
+						<br>
+						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos4" value="3" >
+						<label for="datospersonalesConocimientos4">JQuery</label>
+						<br>
+						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos5" value="4" >
+						<label for="datospersonalesConocimientos5">Java</label>
+					</fieldset>
 
 				</div>
 			
@@ -142,12 +161,16 @@
 			
 				//buscar objetos por su ID
 				var txt   = document.getElementById("txt");
-				var boton = document.getElementById("boton");
-				var selec = document.getElementById("selec");
-				var clear = document.getElementById("clear");
-				var texto = document.getElementById("texto");
 				
-				var sexo  = document.getElementsByName("sexo");
+				var boton     = document.getElementById("boton");
+				var selec     = document.getElementById("selec");
+				var clear     = document.getElementById("clear");
+				var cajaTexto = document.getElementById("texto");
+			
+				
+				//objetos por su name
+				var sexoRadio  = document.getElementsByName("sexo");
+				var conChexbox = document.getElementsByName("conocimientos")
 				
 				boton.onclick = function( event ){
 					console.debug('Boton pulsado');
@@ -177,10 +200,31 @@
 					
 				}
 
+<<<<<<< HEAD
 				for(var i = 0; i < sexo.length; i++) {
 				    sexo[i].onclick = function() {
 				    	console.debug (this.value)
 				    	txt.value += 'radio buttom [' + this.value + ']' + this.innerHTML + '\n';
+=======
+				for(var i = 0; i < sexoRadio.length; i++) {
+				    sexoRadio[i].onclick = function( event ) {
+				    	console.debug('radio buttons ');
+				    	
+				    	txt.value += 'radio buttons: Checked '  + this.value + '\n';
+				    };
+				}
+				
+				for(var i = 0; i < conChexbox.length; i++) {
+					conChexbox[i].onchange = function( event ) {
+				    	console.debug('checkbox ');
+				    	if ( this.checked ) {
+				    		txt.value += 'checkbox : Checked '  + this.value + '\n';
+				    	} else {
+				    		txt.value += 'checkbox : No checked '  + this.value + '\n';
+				    	}
+
+				    	
+>>>>>>> branch 'master' of https://github.com/crismartin666/HolaHtml.git
 				    };
 				}
 
