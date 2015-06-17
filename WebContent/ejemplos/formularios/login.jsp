@@ -14,7 +14,7 @@
 	<input type="password" name="pass" id="pass" value="" placeholder="solo numeros y letras"/>
 	<br />
 	 
-	<input type="submit" value="Acceder" />
+	<input type="submit" value="Acceder">
 
 </form>
 

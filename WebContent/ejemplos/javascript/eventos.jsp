@@ -104,63 +104,200 @@
 				</div>
 			
 				<div class="col2">
+
+					<div id="seguimiento">
 					
-					<fieldset>
-						<input type="button" id="boton" value="Pulsame">
-						<input type="button" id="clear" value="Limpiar">
+						<span id="txtSeguimiento"></span>
+					
+					</div>
+					
+					<form id="formularioEventos" name="formularioEventos" action="#" method="post" onsubmit="validar(this); return false;">
+					
+						<fieldset>
+							<input type="button" id="boton" value="Pulsame">
+							<input type="button" id="clear" value="Limpiar">
+							
+							<select id="selec">
+								<option value="bio">Bilbao</option>
+								<option value="bar">Barakaldo</option>
+								<option value="Get">Getxo</option>
+							</select>
+						</fieldset>
+	
+						<fieldset>
+							<input type="text" id="texto" name="entradaTexto" value=""
+						           placeholder="Escribe algo"
+						           title="Al perder el foco se escribira el contenido en el textarea">		
+					    </fieldset>
+	
+					    <fieldset>
+						<legend>Radio buttons</legend>
+							<span>Sexo:</span><br>
+							<input data-label="Hombre" type="radio" name="sexo" id="datospersonalesSexoH" value="h" >
+							<label for="datospersonalesSexoH">Hombre</label>
+							<br>
+							<input data-label="Mujer" type="radio" name="sexo" id="datospersonalesSexoM" value="m" >
+							<label for="datospersonalesSexoM">Mujer</label>
+							<br>
+							<input data-label="Indefinido" type="radio" name="sexo" id="datospersonalesSexoX" value="i" checked="checked">
+							<label for="datospersonalesSexoX">Indefinido</label>
+						</fieldset>
 						
-						<select id="selec">
-							<option value="bio">Bilbao</option>
-							<option value="bar">Barakaldo</option>
-							<option value="Get">Getxo</option>
-						</select>
-					</fieldset>
-
-					<fieldset>
-						<input type="text" id="texto" name="entradaTexto" value=""
-					           placeholder="Escribe algo"
-					           title="Al perder el foco se escribira el contenido en el textarea">		
-				    </fieldset>
-
-				    <fieldset>
-					<legend>Radio buttons</legend>
-						<span>Sexo:</span><br>
-						<input type="radio" name="sexo" id="datospersonalesSexoH" value="h" >
-						<label for="datospersonalesSexoH">Hombre</label>
-						<br>
-						<input type="radio" name="sexo" id="datospersonalesSexoM" value="m" >
-						<label for="datospersonalesSexoM">Mujer</label>
-						<br>
-						<input type="radio" name="sexo" id="datospersonalesSexoX" value="i" checked="checked">
-						<label for="datospersonalesSexoX">Indefinido</label>
-					</fieldset>
+						<fieldset>
+						<legend>Conocimientos</legend>
+							<input data-label="HTML" type="checkbox" name="conocimientos" id="datospersonalesConocimientos1" value="0">
+							<label for="datospersonalesConocimientos1">HTML</label>
+							<br>
+							<input data-label="HTML" type="checkbox" name="conocimientos" id="datospersonalesConocimientos2" value="1">
+							<label for="datospersonalesConocimientos2">HTML</label>
+							<br>
+							<input data-label="CSS" type="checkbox" name="conocimientos" id="datospersonalesConocimientos3" value="2">
+							<label for="datospersonalesConocimientos3">CSS</label>
+							<br>
+							<input data-label="JQuery" type="checkbox" name="conocimientos" id="datospersonalesConocimientos4" value="3">
+							<label for="datospersonalesConocimientos4">JQuery</label>
+							<br>
+							<input data-label="Java" type="checkbox" name="conocimientos" id="datospersonalesConocimientos5" value="4">
+							<label for="datospersonalesConocimientos5">Java</label>
+						</fieldset>
+						
+						<!-- botones --> 
+						<input type="submit" value="Guardar">
+						<input type="reset"  value="Limpiar">
 					
-					<fieldset>
-					<legend>Conocimientos</legend>
-						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos1" value="0" checked="checked">
-						<label for="datospersonalesConocimientos1">HTML</label>
-						<br>
-						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos2" value="1" >
-						<label for="datospersonalesConocimientos2">JavaScript</label>
-						<br>
-						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos3" value="2" checked="checked">
-						<label for="datospersonalesConocimientos3">CSS</label>
-						<br>
-						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos4" value="3" >
-						<label for="datospersonalesConocimientos4">JQuery</label>
-						<br>
-						<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos5" value="4" >
-						<label for="datospersonalesConocimientos5">Java</label>
-					</fieldset>
-
-				</div>
+					</form>
+				
+				</div> <!-- col2 -->
 			
-			</div>
+			</div> <!-- cnt_cols -->
 			
 			<script type="text/javascript">
 			
+				/**
+					Validación del formulario
+					Si retorno true se submita
+					Si retorno false NO se submita
+				*/
+				var seguimiento    = document.getElementById("seguimiento");
+				var txtSeguimiento = document.getElementById("txtSeguimiento");
+
+				/*
+				function confirmation() {
+					var answer = confirm("¿Deseas Enviar el formulario?")
+
+					if (answer){
+						return true;
+					}
+					else{
+						return false;
+					}
+				}
+				*/
+
+				function validar(formulario){
+					
+					//TODO validar el formulario
+					var resul = false;
+
+
+					var texto = formulario.entradaTexto.value;
+					var longitud=texto.length;
+					
+					var longitud=texto.length;
+					
+					
+					//Coprobar si se ha escrito algo en la caja de texto
+					if( longitud < 5 || longitud >255 ) {
+						
+						seguimiento.style.display = 'block'
+						txtSeguimiento.innerHTML = "El texto tiene que tener entre 5 y 255 caracteres";
+						
+					} else {
+						resul = true;
+					}
+					
+					if (resul) {
+
+						var sexo = "";
+						//Determinamos del sexo seleccionado
+						for (i=0 ; i< formulario.sexo.length ; i++) {
+							
+							if( formulario.sexo[i].checked ) {
+								
+								sexo = formulario.sexo[i].value;
+							}
+						}
+	
+						var conocimientos = 0;
+						//Determinamos los conocimientos indicados
+						for (i=0 ; i< formulario.conocimientos.length ; i++) {
+							
+							if( formulario.conocimientos[i].checked ) {
+								
+								conocimientos +=1;
+							}
+						}
+
+						switch (sexo) {
+						
+							case 'h':
+								if(conocimientos < 1) {
+									seguimiento.style.display = 'block'
+									txtSeguimiento.innerHTML = "Sexo Hombre --> Minimo 1 conocimiento";
+									resul = false;
+								}
+	
+								break;
+							case 'm':
+								if(conocimientos < 2) {
+									seguimiento.style.display = 'block'
+									txtSeguimiento.innerHTML = "Sexo Mujer --> Minimo 1 conocimientos";
+									resul = false;
+								}
+	
+								break;
+							case 'i':
+								
+								if(conocimientos > 0) {
+									seguimiento.style.display = 'block'
+									txtSeguimiento.innerHTML = "Sexo Indefinido --> No puede haber conocimientos";
+									resul = false;
+								}
+								
+								break;
+						
+						}
+					}
+						
+				
+					//Comprobar si se ha escrito algo en la caja de texto
+						
+					if (resul) {
+						
+						//TODO pedir confirmación para enviar formulario
+						
+						var answer = confirm("¿Deseas Enviar el formulario?")
+
+						if ( answer) {
+							
+							console.debug("formulario enviado")
+							
+							formulario.submit();							
+						
+						} else {
+						
+							console.debug("formulario NO enviado")
+						}
+						
+					} else {
+
+						return resul;
+					}
+					
+				}
+			
 				//buscar objetos por su ID
-				var txt   = document.getElementById("txt");
+				var txt       = document.getElementById("txt");
 				
 				var boton     = document.getElementById("boton");
 				var selec     = document.getElementById("selec");
@@ -169,21 +306,24 @@
 			
 				
 				//objetos por su name
-				var sexoRadio  = document.getElementsByName("sexo");
+				var sexo  = document.getElementsByName("sexo");
 				var conChexbox = document.getElementsByName("conocimientos")
 				
 				boton.onclick = function( event ){
+					seguimiento.style.display = 'none';
 					console.debug('Boton pulsado');
 					txt.value += 'Boton pulsado ';
 					txt.value += '[x,y] + [' + event.x + ',' + event.y + ']\n';
 				}
 				
 				clear.onclick = function( event ){
+					seguimiento.style.display = 'none';
 					console.debug('Boton Limpiar');
 					txt.value = '';
 				}
 
 				selec.onchange = function( event ){
+					seguimiento.style.display = 'none';
 					console.debug('selec cambiado');
 					
 					var indice = selec.selectedIndex;
@@ -194,37 +334,43 @@
 					
 				}
 
-				texto.onblur = function( event ){
-					console.debug('texto escrito');
-					txt.value += 'texto excrito: '  + texto.value + '\n';
+				texto.onclick = function( event ){
+					
+					seguimiento.style.display = 'none';
 					
 				}
 
-<<<<<<< HEAD
+				texto.onblur = function( event ){
+					
+					seguimiento.style.display = 'none'
+					console.debug('texto escrito');
+					txt.value += 'texto excrito: '  + cajaTexto.value + '\n';
+					
+				}
+
 				for(var i = 0; i < sexo.length; i++) {
-				    sexo[i].onclick = function() {
-				    	console.debug (this.value)
-				    	txt.value += 'radio buttom [' + this.value + ']' + this.innerHTML + '\n';
-=======
-				for(var i = 0; i < sexoRadio.length; i++) {
-				    sexoRadio[i].onclick = function( event ) {
+					
+				    sexo[i].onchange = function( event ) {
+				    	seguimiento.style.display = 'none';
 				    	console.debug('radio buttons ');
+				    	var label = this.dataset.label;
 				    	
-				    	txt.value += 'radio buttons: Checked '  + this.value + '\n';
+				    	txt.value += 'radio buttons: Checked '  + this.value + ' ' + this.dataset.label + '\n';
 				    };
 				}
 				
 				for(var i = 0; i < conChexbox.length; i++) {
+					
 					conChexbox[i].onchange = function( event ) {
+						seguimiento.style.display = 'none';
 				    	console.debug('checkbox ');
 				    	if ( this.checked ) {
-				    		txt.value += 'checkbox : Checked '  + this.value + '\n';
+				    		txt.value += 'checkbox : Checked '  + this.value + ' ' + this.dataset.label + '\n';
 				    	} else {
-				    		txt.value += 'checkbox : No checked '  + this.value + '\n';
+				    		txt.value += 'checkbox : No checked '  + this.value + ' ' + this.dataset.label + '\n';
 				    	}
 
 				    	
->>>>>>> branch 'master' of https://github.com/crismartin666/HolaHtml.git
 				    };
 				}
 
@@ -235,11 +381,6 @@
 		<footer>
 			Sin referencia
 		</footer>
-			
-	</article>
-	
-	
-	
 	
 </section>
 
